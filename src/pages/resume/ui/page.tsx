@@ -1,6 +1,6 @@
 import { useRef } from 'react';
-import { Chip } from '@/shared';
-import { Link } from 'lucide-react';
+import { calculateDuration, Chip } from '@/shared';
+import { FileText, Github, Link, Mail, Phone } from 'lucide-react';
 import { PdfSaveButton } from '@/features/pdf-export';
 
 export const ResumePage = () => {
@@ -16,14 +16,18 @@ export const ResumePage = () => {
         <section className="mb-10 flex items-start justify-between">
           <div>
             <h1 className="mb-1 text-4xl font-bold">이유림</h1>
-            <p className="mb-4 text-lg text-gray-500">프론트엔드 개발</p>
-            <ul className="flex flex-col gap-1 text-sm text-gray-500">
-              <li className="flex gap-2">
-                <span className="w-14 font-medium text-gray-400">이메일</span>
+            <p className="mb-4 text-lg text-gray-500">프론트엔드 개발자</p>
+            <ul className="flex flex-col gap-2 text-sm text-gray-500">
+              <li className="flex items-center gap-1">
+                <Mail size={16} />
                 <span>yeol0324@gmail.com</span>
               </li>
-              <li className="flex gap-2">
-                <span className="w-14 font-medium text-gray-400">github</span>
+              <li className="flex items-center gap-1">
+                <Phone size={16} />
+                <span>010-7189-6838</span>
+              </li>
+              <li className="flex items-center gap-1">
+                <Github size={16} />
                 <a
                   href="https://github.com/yeol0324"
                   className="text-blue-500 hover:underline"
@@ -31,8 +35,8 @@ export const ResumePage = () => {
                   github.com/yeol0324
                 </a>
               </li>
-              <li className="flex gap-2">
-                <span className="w-14 font-medium text-gray-400">blog</span>
+              <li className="flex items-center gap-1">
+                <FileText size={16} />
                 <a href="#" className="text-blue-500 hover:underline">
                   https://yeol0324.github.io/
                 </a>
@@ -94,7 +98,12 @@ export const ResumePage = () => {
             <div className="mb-1 flex items-start justify-between">
               <h3 className="text-lg font-bold">크레디트라인(주)</h3>
               <span className="text-xs text-gray-400">
-                2024. 11. ~ 2025. 06. (8개월)
+                2024. 11. ~ 2025. 06. (
+                {calculateDuration({
+                  startDate: new Date('2024-11'),
+                  endDate: new Date('2025-06'),
+                })}
+                )
               </span>
             </div>
             <p className="mb-3 text-sm text-gray-500">
@@ -105,7 +114,6 @@ export const ResumePage = () => {
               <div className="mb-1 flex flex-wrap gap-1">
                 <Chip>React</Chip>
                 <Chip>Next</Chip>
-                <Chip>Zustand</Chip>
                 <Chip>MobX</Chip>
               </div>
               <p className="mb-2 text-sm leading-relaxed text-gray-700">
@@ -117,11 +125,17 @@ export const ResumePage = () => {
               </ul>
             </div>
           </div>
+
           <div className="mb-8">
             <div className="mb-1 flex items-start justify-between">
               <h3 className="text-lg font-bold">미니게이트(주)</h3>
               <span className="text-xs text-gray-400">
-                2024. 11. ~ 2025. 06. (8개월)
+                2022. 05. ~ 2024. 10. (
+                {calculateDuration({
+                  startDate: new Date('2022-05'),
+                  endDate: new Date('2024-10'),
+                })}
+                )
               </span>
             </div>
             <p className="mb-3 text-sm text-gray-500">프론트엔드 개발</p>
@@ -156,18 +170,24 @@ export const ResumePage = () => {
               </ul>
             </div>
           </div>
+
           <div className="mb-8">
             <div className="mb-1 flex items-start justify-between">
               <h3 className="text-lg font-bold">펍플(주)</h3>
               <span className="text-xs text-gray-400">
-                2024. 11. ~ 2025. 06. (8개월)
+                2020. 12. ~ 2022. 05. (
+                {calculateDuration({
+                  startDate: new Date('2020-12'),
+                  endDate: new Date('2022-05'),
+                })}
+                )
               </span>
             </div>
             <p className="mb-3 text-sm text-gray-500">프론트엔드 개발</p>
 
             <div className="mb-4">
               <p className="mb-2 text-sm leading-relaxed text-gray-700">
-                에듀테크 기반 대학 교재 플랫폼 및 전자책 변환(PDF→EPUB) 기술
+                에듀테크 기반 대학 교재 플랫폼 및 전자책 변환(PDF→EPUB) 에디터
                 개발
               </p>
               <div className="mb-1 flex flex-wrap gap-1">
@@ -189,111 +209,314 @@ export const ResumePage = () => {
         {/* === 프로젝트 === */}
         <section className="mb-10">
           <h2 className="mb-6 text-2xl font-bold">프로젝트</h2>
+
           {/* === 크레디트라인 === */}
-
           <div className="mb-8">
-            <p className="mb-3 text-sm text-gray-500">
-              크레디트라인 | 프론트엔드 개발
-            </p>
-            <div className="mb-1 flex items-start justify-between">
-              <h3 className="text-lg font-bold">정보보안 포털</h3>
-              <span className="text-xs text-gray-400">
-                2024. 11. ~ 2025. 06. (8개월)
-              </span>
-            </div>
+            <p className="mb-3 text-sm text-gray-500">크레디트라인</p>
+            <div>
+              <div className="mb-1 flex items-start justify-between">
+                <h3 className="text-lg font-bold">정보보안 포털</h3>
+                <span className="text-xs text-gray-400">
+                  2024. 11. ~ 2025. 06. (
+                  {calculateDuration({
+                    startDate: new Date('2024-11'),
+                    endDate: new Date('2025-06'),
+                  })}
+                  )
+                </span>
+              </div>
 
-            <div className="mb-4">
-              <p className="mb-1 text-sm font-semibold">(2024.11 - 2025.06)</p>
-              <p className="mb-1 text-xs text-gray-500">
-                Next.js, TypeScript, MUI, MobX
-              </p>
-              <p className="mb-2 text-sm leading-relaxed text-gray-700">
-                보안팀이 사용하는 전사 보안 포털에서 심만 건 규모의 로그 관리
-                테이블과 교육 관리, 임직원 소명 등록·관리 프론트엔드 개발을
-                했습니다.
-              </p>
-              <ul className="list-inside list-disc space-y-1 pl-1 text-sm text-gray-700">
-                <li>
-                  MobX 기반 권한 상태를 전역으로 관리하고, observer를 통해 권한
-                  변경이 즉시 반영되도록 구성했습니다.
-                </li>
-                <li>
-                  TanStack Table 기반 공통 DataTable을 구축하고 커스텀 훅과 셀
-                  컴포넌트로 기능을 모듈화했습니다.
-                </li>
-              </ul>
+              <div className="mb-4">
+                <p className="mb-1 text-xs text-gray-500">
+                  Next.js, TypeScript, MUI, MobX
+                </p>
+                <p className="mb-2 text-sm leading-relaxed text-gray-700">
+                  보안팀이 사용하는 전사 보안 포털에서 심만 건 규모의 로그 관리
+                  테이블과 교육 관리, 임직원 소명 등록·관리 프론트엔드 개발을
+                  했습니다.
+                </p>
+                <ul className="list-inside list-disc space-y-1 pl-1 text-sm text-gray-700">
+                  <li>
+                    MobX 기반 권한 상태를 전역으로 관리하고, observer를 통해
+                    권한 변경이 즉시 반영되도록 구성했습니다.
+                  </li>
+                  <li>
+                    TanStack Table 기반 공통 DataTable을 구축하고 커스텀 훅과 셀
+                    컴포넌트로 기능을 모듈화했습니다.
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
+
           {/* === 미니게이트 === */}
           <div className="mb-8">
-            <p className="mb-1 text-sm text-gray-500">
-              미니게이트 | 프론트엔드 개발
-            </p>
-            <div className="mb-1 flex items-start justify-between">
-              <h3 className="text-lg font-bold">정보보안 포털</h3>
-              <span className="text-xs text-gray-400">
-                2024. 11. ~ 2025. 06. (8개월)
-              </span>
+            <p className="mb-1 text-sm text-gray-500">미니게이트</p>
+            <div>
+              <div className="mb-1 flex items-start justify-between">
+                <h3 className="text-lg font-bold">위티버스 교육 플랫폼</h3>
+                <span className="text-xs text-gray-400">
+                  2024. 03. ~ 2024. 10. (
+                  {calculateDuration({
+                    startDate: new Date('2024-03'),
+                    endDate: new Date('2024-10'),
+                  })}
+                  )
+                </span>
+              </div>
+
+              <div className="mb-4">
+                <p className="mb-1 text-xs text-gray-500">
+                  Next.js, TypeScript, MUI, MobX
+                </p>
+                <p
+                  id="improve"
+                  className="mb-2 text-sm leading-relaxed text-gray-700"
+                >
+                  보안팀이 사용하는 전사 보안 포털에서 심만 건 규모의 로그 관리
+                  테이블과 교육 관리, 임직원 소명 등록·관리 프론트엔드 개발을
+                  했습니다.
+                </p>
+                <ul className="list-inside list-disc space-y-1 pl-1 text-sm text-gray-700">
+                  <li>
+                    MobX 기반 권한 상태를 전역으로 관리하고, observer를 통해
+                    권한 변경이 즉시 반영되도록 구성했습니다.
+                  </li>
+                  <li>
+                    TanStack Table 기반 공통 DataTable을 구축하고 커스텀 훅과 셀
+                    컴포넌트로 기능을 모듈화했습니다.
+                  </li>
+                </ul>
+              </div>
             </div>
 
-            <div className="mb-4">
-              <p className="mb-1 text-sm font-semibold">(2024.11 - 2025.06)</p>
-              <p className="mb-1 text-xs text-gray-500">
-                Next.js, TypeScript, MUI, MobX
-              </p>
-              <p
-                id="improve"
-                className="mb-2 text-sm leading-relaxed text-gray-700"
-              >
-                보안팀이 사용하는 전사 보안 포털에서 심만 건 규모의 로그 관리
-                테이블과 교육 관리, 임직원 소명 등록·관리 프론트엔드 개발을
-                했습니다.
-              </p>
-              <ul className="list-inside list-disc space-y-1 pl-1 text-sm text-gray-700">
-                <li>
-                  MobX 기반 권한 상태를 전역으로 관리하고, observer를 통해 권한
-                  변경이 즉시 반영되도록 구성했습니다.
-                </li>
-                <li>
-                  TanStack Table 기반 공통 DataTable을 구축하고 커스텀 훅과 셀
-                  컴포넌트로 기능을 모듈화했습니다.
-                </li>
-              </ul>
+            <div>
+              <div className="mb-1 flex items-start justify-between">
+                <h3 className="text-lg font-bold">위티버스 admin</h3>
+                <span className="text-xs text-gray-400">
+                  2024. 03. ~ 2024. 10. (
+                  {calculateDuration({
+                    startDate: new Date('2024-03'),
+                    endDate: new Date('2024-10'),
+                  })}
+                  )
+                </span>
+              </div>
+            </div>
+
+            <div>
+              <div className="mb-1 flex items-start justify-between">
+                <h3 className="text-lg font-bold">마이올린 학습앱</h3>
+                <span className="text-xs text-gray-400">
+                  2022. 09. ~ 2024. 10. (
+                  {calculateDuration({
+                    startDate: new Date('2022-09'),
+                    endDate: new Date('2024-10'),
+                  })}
+                  )
+                </span>
+              </div>
+
+              <div className="mb-4">
+                <p className="mb-1 text-xs text-gray-500">
+                  Next.js, TypeScript, MUI, MobX
+                </p>
+                <p
+                  id="improve"
+                  className="mb-2 text-sm leading-relaxed text-gray-700"
+                >
+                  보안팀이 사용하는 전사 보안 포털에서 심만 건 규모의 로그 관리
+                  테이블과 교육 관리, 임직원 소명 등록·관리 프론트엔드 개발을
+                  했습니다.
+                </p>
+                <ul className="list-inside list-disc space-y-1 pl-1 text-sm text-gray-700">
+                  <li>
+                    MobX 기반 권한 상태를 전역으로 관리하고, observer를 통해
+                    권한 변경이 즉시 반영되도록 구성했습니다.
+                  </li>
+                  <li>
+                    TanStack Table 기반 공통 DataTable을 구축하고 커스텀 훅과 셀
+                    컴포넌트로 기능을 모듈화했습니다.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div>
+              <div className="mb-1 flex items-start justify-between">
+                <h3 className="text-lg font-bold">마이올린 학습 관리 앱</h3>
+                <span className="text-xs text-gray-400">
+                  2022. 09. ~ 2024. 10. (
+                  {calculateDuration({
+                    startDate: new Date('2022-09'),
+                    endDate: new Date('2024-10'),
+                  })}
+                  )
+                </span>
+              </div>
+            </div>
+
+            <div>
+              <div className="mb-1 flex items-start justify-between">
+                <h3 className="text-lg font-bold">ADMS 크라우드 소싱 플랫폼</h3>
+                <span className="text-xs text-gray-400">
+                  2023. 03. ~ 2023. 12. (
+                  {calculateDuration({
+                    startDate: new Date('2023-03'),
+                    endDate: new Date('2023-12'),
+                  })}
+                  )
+                </span>
+              </div>
+            </div>
+
+            <div>
+              <div className="mb-1 flex items-start justify-between">
+                <h3 className="text-lg font-bold">전자저작물 컨텐츠 에디터</h3>
+                <span className="text-xs text-gray-400">
+                  2023. 11. ~ 2023. 12. (
+                  {calculateDuration({
+                    startDate: new Date('2023-11'),
+                    endDate: new Date('2023-12'),
+                  })}
+                  )
+                </span>
+              </div>
+            </div>
+
+            <div>
+              <div className="mb-1 flex items-start justify-between">
+                <h3 className="text-lg font-bold">리틀팍스 학습 플랫폼</h3>
+                <span className="text-xs text-gray-400">
+                  2022. 05. ~ 2022. 11. (
+                  {calculateDuration({
+                    startDate: new Date('2022-05'),
+                    endDate: new Date('2022-11'),
+                  })}
+                  )
+                </span>
+              </div>
+            </div>
+
+            <div>
+              <div className="mb-1 flex items-start justify-between">
+                <h3 className="text-lg font-bold">리틀팍스 admin</h3>
+                <span className="text-xs text-gray-400">
+                  2022. 05. ~ 2022. 11. (
+                  {calculateDuration({
+                    startDate: new Date('2022-05'),
+                    endDate: new Date('2022-11'),
+                  })}
+                  )
+                </span>
+              </div>
             </div>
           </div>
+
           <div className="mb-8">
-            <p className="mb-1 text-sm text-gray-500">펍플 | 프론트엔드 개발</p>
-            <div className="mb-1 flex items-start justify-between">
-              <h3 className="text-lg font-bold">정보보안 포털</h3>
-              <span className="text-xs text-gray-400">
-                2024. 11. ~ 2025. 06. (8개월)
-              </span>
+            <p className="mb-1 text-sm text-gray-500">펍플 </p>
+            <div>
+              <div className="mb-1 flex items-start justify-between">
+                <h3 className="text-lg font-bold">이앨리스 대학 교재 플랫폼</h3>
+                <span className="text-xs text-gray-400">
+                  2020. 12. ~ 2022. 05. (
+                  {calculateDuration({
+                    startDate: new Date('2020-12'),
+                    endDate: new Date('2022-05'),
+                  })}
+                  )
+                </span>
+              </div>
+
+              <div className="mb-4">
+                <p className="mb-1 text-xs text-gray-500">
+                  Next.js, TypeScript, MUI, MobX
+                </p>
+                <p
+                  id="improve"
+                  className="mb-2 text-sm leading-relaxed text-gray-700"
+                >
+                  보안팀이 사용하는 전사 보안 포털에서 심만 건 규모의 로그 관리
+                  테이블과 교육 관리, 임직원 소명 등록·관리 프론트엔드 개발을
+                  했습니다.
+                </p>
+                <ul className="list-inside list-disc space-y-1 pl-1 text-sm text-gray-700">
+                  <li>
+                    MobX 기반 권한 상태를 전역으로 관리하고, observer를 통해
+                    권한 변경이 즉시 반영되도록 구성했습니다.
+                  </li>
+                  <li>
+                    TanStack Table 기반 공통 DataTable을 구축하고 커스텀 훅과 셀
+                    컴포넌트로 기능을 모듈화했습니다.
+                  </li>
+                </ul>
+              </div>
             </div>
 
-            <div className="mb-4">
-              <p className="mb-1 text-sm font-semibold">(2024.11 - 2025.06)</p>
-              <p className="mb-1 text-xs text-gray-500">
-                Next.js, TypeScript, MUI, MobX
-              </p>
-              <p
-                id="improve"
-                className="mb-2 text-sm leading-relaxed text-gray-700"
-              >
-                보안팀이 사용하는 전사 보안 포털에서 심만 건 규모의 로그 관리
-                테이블과 교육 관리, 임직원 소명 등록·관리 프론트엔드 개발을
-                했습니다.
-              </p>
-              <ul className="list-inside list-disc space-y-1 pl-1 text-sm text-gray-700">
-                <li>
-                  MobX 기반 권한 상태를 전역으로 관리하고, observer를 통해 권한
-                  변경이 즉시 반영되도록 구성했습니다.
-                </li>
-                <li>
-                  TanStack Table 기반 공통 DataTable을 구축하고 커스텀 훅과 셀
-                  컴포넌트로 기능을 모듈화했습니다.
-                </li>
-              </ul>
+            <div>
+              <div className="mb-1 flex items-start justify-between">
+                <h3 className="text-lg font-bold">
+                  한국점자도서관 시각장애인 독서지원 플랫폼
+                </h3>
+                <span className="text-xs text-gray-400">
+                  2021. 07. ~ 2021. 12. (
+                  {calculateDuration({
+                    startDate: new Date('2021-07'),
+                    endDate: new Date('2021-12'),
+                  })}
+                  )
+                </span>
+              </div>
             </div>
+
+            <div>
+              <div className="mb-1 flex items-start justify-between">
+                <h3 className="text-lg font-bold">캠퍼스북 전자책 플랫폼</h3>
+                <span className="text-xs text-gray-400">
+                  2021. 05. ~ 2021. 11. (
+                  {calculateDuration({
+                    startDate: new Date('2021-05'),
+                    endDate: new Date('2021-11'),
+                  })}
+                  )
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <hr className="mb-10 border-gray-200" />
+
+        {/* === 교육 === */}
+        <section className="mb-10">
+          <h2 className="mb-6 text-2xl font-bold">교육</h2>
+          <div className="mb-8">
+            <h3 className="mb-1 text-lg font-bold">국가평생교육진흥원</h3>
+            <p className="mb-1 text-sm text-gray-400">
+              졸업 | 대학교(학사) | 컴퓨터공학
+            </p>
+            <span className="text-sm text-gray-500">2022. 10. ~ 2025. 12.</span>
+          </div>
+          <div className="mb-8">
+            <h3 className="mb-1 text-lg font-bold">경복비즈니스 고등학교</h3>
+            <p className="mb-1 text-sm text-gray-400">
+              졸업 | 고등학교 | IT비즈니스과
+            </p>
+            <span className="text-sm text-gray-500">2016. 03. ~ 2019. 02.</span>
+          </div>
+        </section>
+
+        <hr className="mb-10 border-gray-200" />
+
+        {/* === 자격증 === */}
+        <section className="mb-10">
+          <h2 className="mb-6 text-2xl font-bold">자격증</h2>
+          <div className="mb-8">
+            <h3 className="mb-1 text-lg font-bold">정보처리기사</h3>
+            <p className="mb-1 text-sm text-gray-400">
+              기사 | 한국산업인력공단
+            </p>
+            <span className="text-sm text-gray-500">2025. 12.</span>
           </div>
         </section>
       </article>

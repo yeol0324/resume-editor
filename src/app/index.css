@@ -1,0 +1,29 @@
+@import 'tailwindcss';
+
+:root {
+  --resume-max-width: 794px; /* A4 기준 */
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family:
+    'Pretendard Variable',
+    Pretendard,
+    -apple-system,
+    BlinkMacSystemFont,
+    system-ui,
+    sans-serif;
+  background-color: #f3f4f6;
+  color: #111827;
+}
+
+/* Tailwind v4 기본 outline 제거 */
+:focus {
+  outline: none;
+}

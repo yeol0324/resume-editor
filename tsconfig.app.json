@@ -19,7 +19,12 @@
     /* Path Aliases */
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@app/*": ["./src/app/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@features/*": ["./src/features/*"],
+      "@entites/*": ["./src/entites/*"],
+      "@shared/*": ["./src/shared/*"]
     },
 
     /* Linting */

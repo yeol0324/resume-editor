@@ -20,14 +20,11 @@ export const EditorPage = () => {
     addSection,
     removeSection,
     toggleVisible,
-    updateHtml,
-    reorder,
+    reorderSections,
   } = useEditorStore();
 
   const sensors = useSensors(
-    useSensor(PointerSensor, {
-      activationConstraint: { distance: 5 }, // 5px 이상 움직여야 드래그 시작
-    }),
+    useSensor(PointerSensor, { activationConstraint: { distance: 5 } }),
   );
 
   const handleDragEnd = (event: DragEndEvent) => {
@@ -36,14 +33,16 @@ export const EditorPage = () => {
 
     const oldIndex = sections.findIndex((s) => s.id === active.id);
     const newIndex = sections.findIndex((s) => s.id === over.id);
-
-    reorder(oldIndex, newIndex);
+    if (oldIndex !== -1 && newIndex !== -1) {
+      reorderSections(oldIndex, newIndex);
+    }
   };
 
   return (
     <div className="relative flex page-bg overflow-hidden">
       <PreviewPannel />
-      <main className="ml-10 flex-1 p-10">
+
+      <main className="ml-10 flex-1 p-10 transition-all duration-500 ease-in-out">
         <div className="max-w-a4 mx-auto">
           <header className="mb-section flex items-center justify-between">
             <h1 className="text-3xl font-bold text-text-primary">
@@ -70,7 +69,6 @@ export const EditorPage = () => {
                     section={section}
                     onToggleVisible={toggleVisible}
                     onRemove={removeSection}
-                    onUpdateHtml={updateHtml}
                   />
                 ))}
               </div>

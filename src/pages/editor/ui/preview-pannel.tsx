@@ -1,11 +1,54 @@
 import { ChevronRight, ChevronLeft } from 'lucide-react';
 import { useState } from 'react';
-import { useEditorStore } from '../model/use-editor-store';
+import { useEditorStore, type Block } from '../model/use-editor-store';
+
+const renderNonLiBlock = (block: Block) => {
+  const html = { __html: block.content };
+  switch (block.type) {
+    case 'h1':
+      return <h1 key={block.id} dangerouslySetInnerHTML={html} />;
+    case 'h2':
+      return <h2 key={block.id} dangerouslySetInnerHTML={html} />;
+    case 'h3':
+      return <h3 key={block.id} dangerouslySetInnerHTML={html} />;
+    default:
+      return <p key={block.id} dangerouslySetInnerHTML={html} />;
+  }
+};
+
+// 연속된 li 블록 ul로 묶어서 렌더링
+const renderBlocks = (blocks: Block[]) => {
+  const result: React.ReactNode[] = [];
+  let liBuffer: Block[] = [];
+
+  const flushLi = () => {
+    if (liBuffer.length === 0) return;
+    result.push(
+      <ul key={liBuffer[0].id + '-ul'}>
+        {liBuffer.map((b) => (
+          <li key={b.id} dangerouslySetInnerHTML={{ __html: b.content }} />
+        ))}
+      </ul>,
+    );
+    liBuffer = [];
+  };
+
+  for (const block of blocks) {
+    if (block.type === 'li') {
+      liBuffer.push(block);
+    } else {
+      flushLi();
+      result.push(renderNonLiBlock(block));
+    }
+  }
+
+  flushLi();
+  return result;
+};
 
 export const PreviewPannel = () => {
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
   const sections = useEditorStore((state) => state.sections);
-
   const visibleSections = sections.filter((s) => s.visible);
 
   return (
@@ -17,14 +60,12 @@ export const PreviewPannel = () => {
       <div className="h-full w-[850px] overflow-y-auto bg-surface p-10 shadow-2xl">
         <div className="flex flex-col gap-8">
           <h2 className="text-xl font-bold text-text-body">프린트 미리보기</h2>
-          <article className="mx-auto a4-article min-h-a4 w-a4 origin-top scale-[0.9] shadow-md transition-transform">
+          <article className="a4-article min-h-a4 w-a4 origin-top scale-[0.9] shadow-md transition-transform">
             {visibleSections.length > 0 ? (
               visibleSections.map((section) => (
-                <div
-                  key={section.id}
-                  dangerouslySetInnerHTML={{ __html: section.html }}
-                  className="mb-4"
-                />
+                <div key={section.id} className="mb-4">
+                  {renderBlocks(section.blocks)}
+                </div>
               ))
             ) : (
               <p className="text-center text-text-muted italic">
@@ -35,7 +76,6 @@ export const PreviewPannel = () => {
         </div>
       </div>
 
-      {/* 토글 버튼 */}
       <button
         onClick={() => setIsPreviewOpen(!isPreviewOpen)}
         className="group relative flex h-full w-10 cursor-pointer items-center justify-center bg-border-default transition-colors hover:bg-text-meta"
@@ -48,7 +88,7 @@ export const PreviewPannel = () => {
           )}
         </div>
         <span
-          className="hidden text-xs font-bold whitespace-nowrap text-text-sub uppercase [writing-mode:vertical-lr]"
+          className="text-xs font-bold whitespace-nowrap text-text-sub uppercase [writing-mode:vertical-lr]"
           style={{ display: isPreviewOpen ? 'none' : 'block' }}
         >
           Preview

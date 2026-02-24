@@ -67,8 +67,6 @@ export const useEditorStore = create<EditorStore>((set) => ({
       const result = [...state.sections];
       const [removed] = result.splice(fromIndex, 1);
       result.splice(toIndex, 0, removed);
-      return {
-        sections: result.map((s, idx) => ({ ...s, order: idx })),
-      };
+      return { sections: result };
     }),
 }));

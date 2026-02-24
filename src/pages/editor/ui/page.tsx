@@ -1,16 +1,50 @@
-import { PreviewPannel } from './preview-pannel';
+import {
+  DndContext,
+  closestCenter,
+  PointerSensor,
+  useSensor,
+  useSensors,
+  type DragEndEvent,
+} from '@dnd-kit/core';
+import {
+  SortableContext,
+  verticalListSortingStrategy,
+} from '@dnd-kit/sortable';
 import { useEditorStore } from '../model/use-editor-store';
+import { PreviewPannel } from './preview-pannel';
+import { SortableSection } from './sortable-section';
 
 export const EditorPage = () => {
-  const { sections, addSection, removeSection, toggleVisible, updateHtml } =
-    useEditorStore();
+  const {
+    sections,
+    addSection,
+    removeSection,
+    toggleVisible,
+    updateHtml,
+    reorder,
+  } = useEditorStore();
+
+  const sensors = useSensors(
+    useSensor(PointerSensor, {
+      activationConstraint: { distance: 5 }, // 5px 이상 움직여야 드래그 시작
+    }),
+  );
+
+  const handleDragEnd = (event: DragEndEvent) => {
+    const { active, over } = event;
+    if (!over || active.id === over.id) return;
+
+    const oldIndex = sections.findIndex((s) => s.id === active.id);
+    const newIndex = sections.findIndex((s) => s.id === over.id);
+
+    reorder(oldIndex, newIndex);
+  };
 
   return (
-    <div className="page-bg relative flex overflow-hidden">
+    <div className="relative flex page-bg overflow-hidden">
       <PreviewPannel />
-
-      <main className="ml-10 flex-1 p-10 transition-all duration-500 ease-in-out">
-        <div className="mx-auto max-w-a4">
+      <main className="ml-10 flex-1 p-10">
+        <div className="max-w-a4 mx-auto">
           <header className="mb-section flex items-center justify-between">
             <h1 className="text-3xl font-bold text-text-primary">
               이력서 에디터
@@ -20,44 +54,28 @@ export const EditorPage = () => {
             </button>
           </header>
 
-          <div className="flex flex-col gap-4">
-            {sections.map((section) => (
-              <article
-                key={section.id}
-                className={`group relative min-h-[100px] w-full bg-paper p-8 shadow-sm transition-opacity ${
-                  !section.visible ? 'opacity-50' : ''
-                }`}
-              >
-                {/* 섹션 컨트롤러 */}
-                <div className="absolute top-2 right-2 flex items-center gap-2 opacity-0 transition-opacity group-hover:opacity-100">
-                  <button
-                    onClick={() => toggleVisible(section.id)}
-                    className="btn-ghost"
-                    title={section.visible ? '숨기기' : '보이기'}
-                  >
-                    {section.visible ? '👁️' : '🚫'}
-                  </button>
-                  <button
-                    onClick={() => removeSection(section.id)}
-                    className="btn-ghost btn-danger"
-                    title="삭제"
-                  >
-                    🗑️
-                  </button>
-                </div>
-
-                <div
-                  contentEditable
-                  suppressContentEditableWarning
-                  onBlur={(e) =>
-                    updateHtml(section.id, e.currentTarget.innerHTML)
-                  }
-                  dangerouslySetInnerHTML={{ __html: section.html }}
-                  className="prose prose-slate max-w-none focus:outline-none"
-                />
-              </article>
-            ))}
-          </div>
+          <DndContext
+            sensors={sensors}
+            collisionDetection={closestCenter}
+            onDragEnd={handleDragEnd}
+          >
+            <SortableContext
+              items={sections.map((s) => s.id)}
+              strategy={verticalListSortingStrategy}
+            >
+              <div className="flex flex-col gap-4">
+                {sections.map((section) => (
+                  <SortableSection
+                    key={section.id}
+                    section={section}
+                    onToggleVisible={toggleVisible}
+                    onRemove={removeSection}
+                    onUpdateHtml={updateHtml}
+                  />
+                ))}
+              </div>
+            </SortableContext>
+          </DndContext>
         </div>
       </main>
     </div>

@@ -17,7 +17,7 @@ export const PreviewPannel = () => {
       <div className="h-full w-[850px] overflow-y-auto bg-surface p-10 shadow-2xl">
         <div className="flex flex-col gap-8">
           <h2 className="text-xl font-bold text-text-body">프린트 미리보기</h2>
-          <article className="a4-article mx-auto min-h-a4 w-a4 origin-top scale-[0.9] shadow-md transition-transform">
+          <article className="mx-auto a4-article min-h-a4 w-a4 origin-top scale-[0.9] shadow-md transition-transform">
             {visibleSections.length > 0 ? (
               visibleSections.map((section) => (
                 <div

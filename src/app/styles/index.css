@@ -1,0 +1,6 @@
+/* Import Tailwind CSS base */
+@import 'tailwindcss';
+
+/* Design System */
+@import './tokens.css';
+@import './utilities.css';

@@ -1,0 +1,31 @@
+@theme {
+  /* ── Colors ── */
+  --color-surface: #f3f4f6;
+  --color-paper: #ffffff;
+
+  --color-text-primary: #111827;
+  --color-text-body: #374151;
+  --color-text-sub: #6b7280;
+  --color-text-meta: #9ca3af;
+  --color-text-muted: #d1d5db;
+
+  --color-border-default: #e5e7eb;
+  --color-border-light: #f3f4f6;
+
+  --color-accent: #2563eb;
+  --color-accent-hover: #1d4ed8;
+  --color-danger: #ef4444;
+
+  /* ── Sizing ── */
+  --width-a4: 794px;
+  --height-a4: 1123px;
+
+  /* ── Spacing ── */
+  --spacing-page: 4rem;
+  --spacing-section: 2rem;
+
+  /* ── Typography ── */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --line-height-relaxed: 1.625;
+}

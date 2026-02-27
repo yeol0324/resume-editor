@@ -214,6 +214,7 @@ export const ResumePage = () => {
               </ul>
             </div>
           </div>
+          <PrintBreak show={showGuide} marginBottom={40} />
 
           {/* 펍플 */}
           <div className="relative mb-6 pl-5 before:absolute before:top-5 before:left-[5px] before:h-[calc(100%-20px)] before:w-px before:bg-gray-200">
@@ -247,8 +248,6 @@ export const ResumePage = () => {
 
               <ul className="list-disc space-y-1 px-4 text-sm text-gray-700">
                 <li>교재 검색·구매 웹 서비스 구현</li>
-                <PrintBreak show={showGuide} marginBottom={40} />
-
                 <li>Vuex를 활용한 장바구니 및 주문 상태 관리</li>
                 <li>웹 접근성과 반응형 대응을 고려한 UI 구축</li>
               </ul>
@@ -291,13 +290,22 @@ export const ResumePage = () => {
               </div>
 
               <div className="mb-4">
-                {/* 역할 / 맥락 */}
-                <p className="mb-2 text-sm leading-relaxed text-gray-700">
+                {/* 프로젝트 소개 */}
+                <p className="mb-1 text-xs font-medium text-slate-400">
+                  프로젝트 소개
+                </p>
+                <p className="mb-3 text-sm leading-relaxed text-gray-600">
+                  JSP 기반 레거시 시스템을 React로 마이그레이션하는 프로젝트로
+                  대용량 로그 관리 테이블, 보안·교육·회의 관리, 임직원 소명 등록
+                  및 관리 기능이 있는 전사 보안 포탈
+                </p>
+                {/* 주요 역할 */}
+                <p className="mb-1 text-xs font-medium text-slate-400">
+                  주요 역할
+                </p>
+                <p className="mb-3 text-sm leading-relaxed text-gray-700">
                   기획 초기 단계부터 참여하여 요구사항 도출 및 AS-IS/TO-BE
-                  분석을 수행하고, 설계부터 구현까지 전 과정에 참여했습니다. JSP
-                  기반 레거시 시스템을 React로 마이그레이션하였으며, 전사 보안
-                  포털 내 대용량 로그 관리 테이블, 보안·교육·회의 관리, 임직원
-                  소명 등록 및 관리 등 프론트엔드 개발을 담당했습니다.
+                  분석을 수행하고, 설계부터 구현까지 전 과정에 참여했습니다.
                 </p>
                 <ul className="list-disc space-y-1 px-4 text-sm text-gray-700">
                   {/* <li>
@@ -308,7 +316,7 @@ export const ResumePage = () => {
                   </li> */}
 
                   <li>
-                    스키마 기반으로 렌더링하는{' '}
+                    스키마 기반으로 렌더링하는
                     <Achievement>동적 폼 컴포넌트를 설계</Achievement>
                     했습니다. React Hook Form과 Yup을 활용해 조건부 필드와
                     권한별 입력 제어, debounce 검증을 공통화하고, 조건 변경 시
@@ -328,8 +336,11 @@ export const ResumePage = () => {
                   <li>
                     엑셀 중심 수작업 관리 프로세스를 분석해 대/중/소분류 기반 웹
                     관리 화면으로 설계했습니다. 담당자 변경 시 수동 연락처 입력,
-                    메일 발송 업무를 자동화하여 업무 담당자의 업무 처리 시간을
-                    약 1시간에서 10분 수준으로 단축했습니다.
+                    메일 발송 업무를 자동화하여
+                    <Achievement>
+                      업무 처리 시간을 약 1시간에서 10분으로 단축
+                    </Achievement>
+                    했습니다.
                   </li>
 
                   <li>
@@ -375,19 +386,31 @@ export const ResumePage = () => {
               </div>
 
               <div className="mb-4">
-                {/* 역할 / 맥락 */}
-                <p className="mb-2 text-sm leading-relaxed text-gray-700">
+                {/* 프로젝트 소개 */}
+                <p className="mb-1 text-xs font-medium text-slate-400">
+                  프로젝트 소개
+                </p>
+                <p className="mb-3 text-sm leading-relaxed text-gray-600">
+                  아동 태블릿 학습 시스템에서 Android 런처·Unity 기반 앱과
+                  연동되는 WebView 학습 플레이어 및 LMS/LCMS를 포함하는 에듀테크
+                  학습 플랫폼
+                </p>
+                <PrintBreak show={showGuide} marginBottom={40} />
+                {/* 주요 역할 */}
+                <p className="mb-1 text-xs font-medium text-slate-400">
+                  주요 역할
+                </p>
+                <p className="mb-3 text-sm leading-relaxed text-gray-700">
                   기획 초기 단계부터 참여하여 요구사항 도출 및 기술 스택 선정에
-                  기여했으며, 코드 리뷰·페어 프로그래밍·질문 응대 등 신입 팀원의
-                  성장을 지원했습니다. 아동 태블릿 학습 시스템에서 Android
-                  런처·Unity 기반 앱과 연동되는 WebView 학습 플레이어를
-                  개발하고, 학습 실행·출석 반영·학습 결과 확인까지 학생의 학습
-                  흐름과 LMS/LCMS 프론트엔드를 구현했습니다.
+                  기여했으며, WebView 학습 플레이어 개발과 학습 실행·출석
+                  반영·학습 결과 확인까지 학생 학습 흐름의 프론트엔드를
+                  구현했습니다. 코드 리뷰·페어 프로그래밍·질문 응대 등 신입
+                  팀원의 성장을 지원했습니다.
                 </p>
                 <ul className="list-disc space-y-1 px-4 text-sm text-gray-700">
                   <li>
                     앱에서 여러 진입 경로로 웹 기능을 호출하는 구조를 고려해 URL
-                    기반 직접 접근이 가능한 방식이 필요하다고 판단하고{' '}
+                    기반 직접 접근이 가능한 방식이 필요하다고 판단하고
                     <Achievement>
                       Next.js 도입을 제안 및 적용을 주도
                     </Achievement>
@@ -398,7 +421,7 @@ export const ResumePage = () => {
                   <li>
                     Tailwind 기반으로 공통 컴포넌트와 레이아웃 규칙을 정의하고,
                     화면별로 흩어져 있던 스타일을 컴포넌트 단위로 모아 반응형
-                    대응과 디자인 변경을 쉽게 적용했습니다.{' '}
+                    대응과 디자인 변경을 쉽게 적용했습니다.
                     <Achievement>
                       Compound Components Design 패턴을 적용
                     </Achievement>
@@ -423,12 +446,11 @@ export const ResumePage = () => {
                     제어 모듈을 구현해 중복 이벤트 호출과 상태 불일치를
                     방지했습니다.
                   </li>
-                  <PrintBreak show={showGuide} marginBottom={40} />
                   <li>
                     MVP 기간 중 Web-Android/Unity 연동 시 정해진 규격이 없어
                     신규 기능이 추가될 때마다 다시 협의하는 과정이 반복되며 개발
                     일정이 지연됐습니다. 통신 규격을 공통 브릿지로 정리하고
-                    메시지 구조를 통일했고, 이를 문서화하여{' '}
+                    메시지 구조를 통일했고, 이를 문서화하여
                     <Achievement>웹-앱 연동 작업을 간소화</Achievement>시켜 협업
                     시간을 단축했습니다.
                   </li>
@@ -494,20 +516,31 @@ export const ResumePage = () => {
               </div>
 
               <div id="link01" className="mb-4">
-                {/* 역할 / 맥락 */}
-                <p className="mb-2 text-sm leading-relaxed text-gray-700">
+                {/* 프로젝트 소개 */}
+                <p className="mb-1 text-xs font-medium text-slate-400">
+                  프로젝트 소개
+                </p>
+                <p className="mb-3 text-sm leading-relaxed text-gray-600">
+                  아동 태블릿 학습 서비스로, Android WebView 기반 학습 플레이어
+                  및 학습 보상, 출석, 진도 확인 등 학생 학습 서비스입니다.
+                </p>
+
+                {/* 주요 역할 */}
+                <p className="mb-1 text-xs font-medium text-slate-400">
+                  주요 역할
+                </p>
+                <p className="mb-3 text-sm leading-relaxed text-gray-700">
                   설계 단계부터 참여하여 오픈 후 운영까지 전담하며, 사용자
                   데이터 기반의 개선 방향 도출과 팀 브랜치 전략 수립 등 개발
-                  문화 개선을 주도했습니다. 아동 태블릿 학습 서비스로, Android
-                  태블릿 WebView 기반 학습 플레이어 화면 및 학습 보상, 출석,
-                  진도 확인 등 학생 학습 서비스를 구현했습니다.
+                  문화 개선을 주도했습니다.
                 </p>
+
                 <ul className="list-disc space-y-1 px-4 text-sm text-gray-700">
                   <li>
                     3단계로 이루어져있는 학습 프로세스에서 첫번째 단계에서
                     계속해서 끊기는 로그를 분석해 아동의 터치 실패로 인한 학습
                     이탈이라고 판단했습니다. 터치 줄이기 위해 버튼 Hit Area를
-                    확장하고 클릭 피드백을 추가해{' '}
+                    확장하고 클릭 피드백을 추가해
                     <Achievement>학습 완료율을 50% 에서 70%로 개선</Achievement>
                     했습니다.
                   </li>
@@ -532,20 +565,24 @@ export const ResumePage = () => {
                     패턴을 확인하고 인터랙션 과정에서 비정상 종료가 발생한다고
                     판단했습니다. Canvas 인터랙션 이벤트와 전역 상태 업데이트가
                     반복 실행되며 렌더링 루프가 발생해 브라우저가 종료되는
-                    문제가 있었고,{' '}
+                    문제가 있었고,
                     <Achievement>렌더링과 상태 관리 책임을 분리</Achievement>해
                     비정상 종료 문제를 제거했습니다.
                   </li>
+                  <PrintBreak show={showGuide} marginBottom={40} />
 
                   <li>
-                    팀과 상황에 맞는{' '}
+                    팀과 상황에 맞는
                     <Achievement>
                       Git 브랜치 전략을 세우고 도입을 주도
                     </Achievement>
                     했습니다. 깃 플로우 예시와 팀의 문제점을 정리해 공유하고,
                     회의를 통해 팀만의 브랜치 전략을 만들었습니다. 2주간 시범
-                    기간을 두며 브랜치 문화를 도입해 Merge Conflict 발생 빈도를
-                    절반 수준으로 줄였습니다.
+                    기간을 두며 브랜치 문화를 도입해
+                    <Achievement>
+                      Merge Conflict 발생 빈도를 절반으로 감소
+                    </Achievement>
+                    시켰습니다.
                   </li>
                 </ul>
               </div>
@@ -624,14 +661,23 @@ export const ResumePage = () => {
               </div>
 
               <div className="mb-4">
-                {/* 역할 / 맥락 */}
-                <p className="mb-2 text-sm leading-relaxed text-gray-700">
+                {/* 주요 역할 */}
+                <p className="mb-1 text-xs font-medium text-slate-400">
+                  주요 역할
+                </p>
+                <p className="mb-3 text-sm leading-relaxed text-gray-700">
                   설계 단계부터 참여하여 기획 리뷰 과정에서 기능 개선 아이디어
-                  및 기술적 대안을 제시하고, 견 업체와 상호 코드 리뷰를 진행하며
-                  개발 품질 관리에 기여했습니다. AI 학습데이터 수집을 위한
-                  크라우드 워커 플랫폼의 프론트엔드 개발을 했습니다.
-                  관리자용·작업자용 화면을 분리 설계하고, 작업 분배부터
-                  검수·정산까지 전체 작업 흐름을 구현했습니다.
+                  및 기술적 대안을 제시하고, 파견 업체와 상호 코드 리뷰를
+                  진행하며 개발 품질 관리에 기여했습니다.
+                </p>
+                {/* 프로젝트 소개 */}
+                <p className="mb-1 text-xs font-medium text-slate-400">
+                  프로젝트 소개
+                </p>
+                <p className="mb-3 text-sm leading-relaxed text-gray-600">
+                  AI 학습데이터 수집을 위한 크라우드 워커 플랫폼의 프론트엔드
+                  개발을 했습니다. 관리자용·작업자용 화면을 분리 설계하고, 작업
+                  분배부터 검수·정산까지 전체 작업 흐름을 구현했습니다.
                 </p>
                 <ul className="list-disc space-y-1 px-4 text-sm text-gray-700">
                   <li>
@@ -640,12 +686,11 @@ export const ResumePage = () => {
                     위한 동기화 흐름을 정리해 문장 분류/문단 태깅 작업의 상태가
                     중복되거나 제거되는 문제를 해결했습니다.
                   </li>
-                  <PrintBreak show={showGuide} marginBottom={40} />
                   <li>
                     관리자 대시보드 Chart.js 차트에서 상태 변경마다 canvas가
                     재생성되는 문제를 분석하고 chart instance를 재사용하도록
                     구조를 개선했습니다. 대용량 데이터 렌더링 성능을 위해 조회
-                    범위에 따라{' '}
+                    범위에 따라
                     <Achievement>
                       집계 단위를 조정하는 downsampling 전략
                     </Achievement>
@@ -726,12 +771,21 @@ export const ResumePage = () => {
               </div>
 
               <div className="mb-4">
-                {/* 역할 / 맥락 */}
-                <p className="mb-2 text-sm leading-relaxed text-gray-700">
+                {/* 주요 역할 */}
+                <p className="mb-1 text-xs font-medium text-slate-400">
+                  주요 역할
+                </p>
+                <p className="mb-3 text-sm leading-relaxed text-gray-700">
                   프로젝트 오픈 직전 투입되어 오류 수정 및 유지보수 작업을 통해
-                  서비스 오픈에 기여했습니다. 수만 명의 학생이 사용하는 영어
-                  학습 서비스 리틀팍스의 학습 플랫폼 및 LMS/LCMS 프론트엔드
-                  개발을 했습니다.
+                  서비스 오픈에 기여했습니다.
+                </p>
+                {/* 프로젝트 소개 */}
+                <p className="mb-1 text-xs font-medium text-slate-400">
+                  프로젝트 소개
+                </p>
+                <p className="mb-3 text-sm leading-relaxed text-gray-600">
+                  수만 명의 학생이 사용하는 영어 학습 서비스 리틀팍스의 학습
+                  플랫폼 및 LMS/LCMS 프론트엔드 개발을 했습니다.
                 </p>
                 <ul className="list-disc space-y-1 px-4 text-sm text-gray-700">
                   <li>
@@ -816,7 +870,7 @@ export const ResumePage = () => {
                   <li>
                     화면·타이밍·위치에 따라 상품 가격이 다르게 표시되는 문제를
                     분석한 결과, 가격·쿠폰·배송비 계산 로직이 컴포넌트와 Vuex에
-                    분산되어 있음을 확인했습니다.{' '}
+                    분산되어 있음을 확인했습니다.
                     <Achievement>계산 로직을 공통 util 함수로 분리</Achievement>
                     하고 서버 검증 결과를 기준으로 금액을 반영해 데이터 정합성을
                     개선했습니다. 또한 수량 변경 이벤트에 디바운스를 적용해 중복
@@ -871,9 +925,12 @@ export const ResumePage = () => {
                     했습니다.
                   </li>
                   <li>
-                    실제 사용자 피드백을 수집하고 직접 스크린 리더로 사용자
-                    흐름을 따라가며 누락된 HTML 접근성 속성 보강 및 시멘틱 HTML
-                    구조로 개편하여 웹 접근성, 사용자 흐름을 개선했습니다.
+                    실제 사용자 피드백을 수집하고
+                    <Achievement>
+                      직접 스크린 리더로 사용자 흐름을 검증
+                    </Achievement>
+                    하며 누락된 HTML 접근성 속성 보강 및 시멘틱 HTML 구조로
+                    개편하여 웹 접근성, 사용자 흐름을 개선했습니다.
                   </li>
                 </ul>
               </div>
@@ -926,7 +983,6 @@ export const ResumePage = () => {
         </section>
 
         <hr className="mb-8 border-gray-200" />
-        <PrintBreak show={showGuide} marginBottom={40} />
 
         {/* === 교육 === */}
         <section className="mb-8">
